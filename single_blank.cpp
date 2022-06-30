@@ -24,7 +24,6 @@ single_blank::single_blank(QWidget* parent, int x_pos, int y_pos) : QFrame(paren
 
 single_blank::single_blank(const single_blank& other_bl) : QFrame((QWidget*)other_bl.parent())
 {
-
     this->setGeometry(other_bl.geometry());
     this->setFrameShape(other_bl.frameShape());
     spinBox_X = new QSpinBox(this);
@@ -33,7 +32,6 @@ single_blank::single_blank(const single_blank& other_bl) : QFrame((QWidget*)othe
     spinBox_Y->setGeometry(other_bl.spinBox_Y->geometry());
     spinBox_X->setMaximum(other_bl.spinBox_X->maximum());
     spinBox_Y->setMaximum(other_bl.spinBox_Y->maximum());
-
 }
 
 single_blank&  single_blank::operator =(const single_blank& other_bl)
@@ -46,6 +44,7 @@ single_blank&  single_blank::operator =(const single_blank& other_bl)
     spinBox_Y->setGeometry(other_bl.spinBox_Y->geometry());
     spinBox_X->setMaximum(other_bl.spinBox_X->maximum());
     spinBox_Y->setMaximum(other_bl.spinBox_Y->maximum());
+    return *this;
 }
 
 single_blank::~single_blank()

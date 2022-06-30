@@ -41,7 +41,7 @@ void MainWindow::change_text()
 void MainWindow::calculate_blanks_position()
 {
     //проверяем, что значения листового проката не равны 0
-    if((ui->sheet_X->value() == 0) || (ui->sheet_Y->value() == 0))
+    if ((ui->sheet_X->value() == 0) || (ui->sheet_Y->value() == 0))
     {
         QMessageBox msg;
         msg.setWindowTitle("Ошибка!");
@@ -61,7 +61,7 @@ void MainWindow::calculate_blanks_position()
     blanks_to_install = bl->get_blanks_to_install();
 
     //проверяем, что хоть одна заготовка не равна 0
-    if(blanks_to_install.size() == 0)
+    if (blanks_to_install.size() == 0)
     {
         QMessageBox msg;
         msg.setWindowTitle("Ошибка!");
@@ -83,12 +83,12 @@ void MainWindow::calculate_blanks_position()
     QMessageBox msg;
     QString message_text;
     message_text += "Рассчёт заготовок на листе окончен\n";
-    if(blanks_not_installed.empty())
+    if (blanks_not_installed.empty())
         message_text += "Все заготовки успешно установлены\n";
     else
     {
         message_text += "Не удалось установить заготовки со следующими габаритами: \n";
-        for(int i = 0; i < blanks_not_installed.size(); ++i)
+        for (int i = 0; i < blanks_not_installed.size(); ++i)
         {
             message_text += std::to_string(blanks_not_installed[i].X_size).c_str();
             message_text += "x";
@@ -110,7 +110,7 @@ void MainWindow::calculate_blanks_position()
 
 void MainWindow::repaint_metal_sheet(int i)
 {
-    if((ui->sheet_X->value() != 0) && (ui->sheet_Y->value() != 0))
+    if ((ui->sheet_X->value() != 0) && (ui->sheet_Y->value() != 0))
     {
 
         ui->openGLWidget->setMetalSheet(QRect(0,0,ui->sheet_X->value(), ui->sheet_Y->value()));

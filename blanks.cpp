@@ -36,12 +36,12 @@ blanks::blanks(QWidget* parent) : QWidget(parent)
     QVector<blank_to_install> blanks::get_blanks_to_install()
     {
         QVector<blank_to_install> blanks_to_install;
-        for(QList<single_blank*>::iterator it = blanks_list.begin(); it != blanks_list.end(); it++)
+        for (QList<single_blank*>::iterator it = blanks_list.begin(); it != blanks_list.end(); it++)
         {
             int value_x = (*it)->getX();
             int value_y = (*it)->getY();
 
-            if((value_x > 0) && (value_y > 0))
+            if ((value_x > 0) && (value_y > 0))
             {
                 blanks_to_install.push_back({value_x, value_y});
             }
@@ -53,7 +53,7 @@ blanks::blanks(QWidget* parent) : QWidget(parent)
 
 void blanks::addBlank()
 {
-    if(blanks_list.size() < 7)
+    if (blanks_list.size() < 7)
     {
         int blanks_number = blanks_list.size();
         blanks_list.push_back(new single_blank(this, 25, 10 + 45 * blanks_number));
@@ -63,13 +63,11 @@ void blanks::addBlank()
 
 void blanks::removeBlank()
 {
-    if(blanks_list.size() > 1)
+    if (blanks_list.size() > 1)
     {
        int blanks_number = blanks_list.size();
        delete blanks_list.last();
         blanks_list.pop_back();
-
-
     }
 }
 
@@ -77,7 +75,7 @@ blanks::~blanks()
 {
     delete buttonPlus;
     delete buttonMinus;
-    for(QList<single_blank*>::iterator it = blanks_list.begin(); it != blanks_list.end(); it++)
+    for (QList<single_blank*>::iterator it = blanks_list.begin(); it != blanks_list.end(); it++)
     {
         delete *it;
     }

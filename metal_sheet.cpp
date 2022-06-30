@@ -4,15 +4,11 @@ metal_sheet::metal_sheet(QWidget* parent) : QOpenGLWidget(parent)
 {
 
 }
-
-
 void metal_sheet::initializeGL()
 {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0, 1200, 1000, 0, 0, 1);
-
-
 }
 
 void metal_sheet::resizeGL(int w, int h)
@@ -30,9 +26,9 @@ void metal_sheet::paintGL()
     //paintRectangleEmpty(metal_sheet_rect, 2);
     glColor3d(0.0, 1, 1);
     paintRectangle(metal_sheet_rect);
-    if(blanks_installed.size() != 0)
+    if (blanks_installed.size() != 0)
     {
-        for(QVector<QRect>::iterator it = blanks_installed.begin(); it != blanks_installed.end(); it++)
+        for (QVector<QRect>::iterator it = blanks_installed.begin(); it != blanks_installed.end(); it++)
         {
             glColor3d(0,0,0);
             paintRectangleEmpty(*it, 1);
@@ -84,7 +80,7 @@ void metal_sheet::setMetalSheet(QRect sheet)
 void metal_sheet::setBlanksToInstall(QVector<QRect> blanks_installed)
 {
     this->blanks_installed.clear();
-    for(QVector<QRect>::iterator it = blanks_installed.begin(); it != blanks_installed.end(); ++it)
+    for (QVector<QRect>::iterator it = blanks_installed.begin(); it != blanks_installed.end(); ++it)
     {
         QRect blank_to_install;
         blank_to_install.setLeft(it->left() + 10);
